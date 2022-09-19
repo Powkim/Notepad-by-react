@@ -1,4 +1,1 @@
-<<<<<<< HEAD
-![계산기이미지](https://user-images.githubusercontent.com/107850055/190846756-028d84a8-5f33-4e8b-bf95-19ac0477ccb8.png)
-=======
->>>>>>> ead827c (CSS완성)
+<img src="https://user-images.githubusercontent.com/107850055/191019479-c15383e7-3a40-4efe-9812-e3882c6b5c44.png"></img>
