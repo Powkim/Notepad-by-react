@@ -20,28 +20,28 @@ const onSubmit = (event) => {
     settodo("");
   }
 }
-return (<div>
-  <h1>My To Do list!</h1>
-  
-<form onSubmit={onSubmit}>
-
-<button >
-  click
-</button>
-</form>
-<form onSubmit={onSubmit}>
-
-
-<ul>
-{todos.map((item, index) => (
-<li key={index}>
-  {item}
-<button onClick={ ()=>deleteBtn(index)}>delete!</button>
+return (
+<div>
+<div id='mainWrap'>
+  <div id='main'>
+    <header>My Note</header>
+  <div id="searchWrap">Search..</div>
+  <div id='notelistWrap'>
+<ul >
+<li id="Notelists"><span className='NoteTitle'>Solo Project</span><br></br>
+<span className='NoteDate'>2022.04.21</span>
+<button>del</button>
+<button>edit</button>
 </li>
- ))}
+
 </ul>
-</form>
-</div>)
+
+  </div>
+  </div>
+ 
+</div>
+</div>
+)
 }
 
 
