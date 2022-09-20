@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom"; 
-
+import React from 'react'
 const Main = () =>{
 return (
 
@@ -13,8 +13,8 @@ return (
       <div id='notelistWrap'>
     <ul >
     
-    <li id="Notelists"><span className='NoteTitle'>Solo Project2</span><br></br>
-    <span className='NoteDate'>2022.04.21</span>
+    <li id="Notelists"><span className='NoteTitle'>{localStorage.getItem('title')}</span><br></br>
+    <span className='NoteDate'>{`${localStorage.getItem('msg').slice(0,5)}...`}</span>
     <button>del</button>
     <button><a href=''></a>edit</button>
     </li>

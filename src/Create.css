@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Sunflower&display=swap');
 *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     border: 0px;
+    font-family: 'Gowun Dodum', sans-serif
 }
 #CreateWrap{
     width: 100%;

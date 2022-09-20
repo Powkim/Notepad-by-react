@@ -6,6 +6,24 @@ import {  Link } from "react-router-dom";
 
 
 function Create() {
+  const [Title,setTitle]=useState('')
+  const [Msg,setMsg]=useState('')
+
+  const handleChangeTitle =(event)=>{
+  setTitle(event.target.value)
+  localStorage.setItem('title',event.target.value)
+  }
+
+  
+  const handleChangeMsg=(event)=>{
+    setMsg(event.target.value)
+    localStorage.setItem('msg',event.target.value)
+  }
+  const resetcontent=(event)=>{
+setTitle('')
+setMsg('')
+console.log(Msg)
+  }
 //   const [todo,settodo]=useState('')
 //   const [todos,settodos]=useState([])
 //   const deleteBtn = index => {
@@ -29,13 +47,13 @@ return (<div>
     <div id='MainWrap'>
     <header>
     <Link to='/'> <span>My note</span> </Link>
-    <button id='createButton'>cre</button>
+    <button id='createButton' onClick={resetcontent}>cre</button>
     </header>
 <div id='CreateTitlewrap'>
-  <textarea placeholder='Write Your Title' ></textarea>
+  <textarea placeholder='Write Your Title' onChange={handleChangeTitle} value={Title} >{localStorage.getItem('title')}</textarea>
 </div>
 <div id='CreateContentWrap' >
-<textarea placeholder='Write Your Content'></textarea>
+<textarea placeholder='Write Your Content'onChange={handleChangeMsg} value={Msg}>{localStorage.getItem('msg')}</textarea>
 </div>
   </div>
   </div>
@@ -60,6 +78,7 @@ return (<div>
 </ul>
 </form> */}
 </div>)
+
 }
 
 export default Create;

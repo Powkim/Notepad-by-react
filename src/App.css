@@ -1,3 +1,4 @@
+
 .App {
   text-align: center;
 }
@@ -99,12 +100,22 @@ overflow-y: auto;
 .NoteTitle{
   width: 100%;
   font-size: 18px;
-  color:#fff
+  color:#fff;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
 }
 .NoteDate{
-margin-right: 110px;
+  text-align: left;
+  width: 49%;
 font-size: 15px;
 color: #D0D0D0;
+
+
+}
+.NoteDate>button{
+  width: 49%;
+  position:inherit;
+  right: 0;
 }
 
 li{list-style: none;padding: 5px;}
