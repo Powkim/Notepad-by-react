@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom"; 
 import React from 'react'
-const Main = () =>{
+const Main = ({TitleList}) =>{
 return (
 
     <div>
@@ -12,12 +12,16 @@ return (
       <div id="searchWrap">Search..</div>
       <div id='notelistWrap'>
     <ul >
-    
+    {TitleList.map((item,index)=>{
+<li key={index} id="Notelists">{item}</li>
+
+    })}
     <li id="Notelists"><span className='NoteTitle'>{localStorage.getItem('title')}</span><br></br>
     <span className='NoteDate'>{`${localStorage.getItem('msg').slice(0,5)}...`}</span>
     <button>del</button>
     <button><a href=''></a>edit</button>
     </li>
+    
     
     
     </ul>

@@ -3,27 +3,49 @@ import { useState, useEffect } from "react";
 import './Create.css';
 
 import {  Link } from "react-router-dom"; 
-
+import Main from './m'
 
 function Create() {
   const [Title,setTitle]=useState('')
   const [Msg,setMsg]=useState('')
+  const [TitleList,setTitleList]=useState('')
+  const [MsgList,setMsgList]=useState('')
+  const Title_key="title"
+  const Msg_key="msg"
+ 
 
-  const handleChangeTitle =(event)=>{
-  setTitle(event.target.value)
-  localStorage.setItem('title',event.target.value)
+  // useEffect(()=>{
+  //   localStorage.setItem(Title_key,JSON.stringify(Title))
+  // })
+  
+
+
+  const onChangeTitle =(event)=>{
+setTitle(event.target.value)
   }
-
   
   const handleChangeMsg=(event)=>{
     setMsg(event.target.value)
-    localStorage.setItem('msg',event.target.value)
+     saveMsg()
   }
-  const resetcontent=(event)=>{
-setTitle('')
-setMsg('')
-console.log(Msg)
+  
+  const saveTitle=()=>{
+    localStorage.setItem(Title_key,JSON.stringify(TitleList))//원래 title이였는데 안돼서 바꿈 왜 안됐는지 이유 찾을것.
+    }
+
+  const saveMsg=()=> {
+    localStorage.setItem(Msg_key, JSON.stringify(Msg));
   }
+const onClick=()=>{
+setTitle("")
+  setTitleList((current)=>[Title,...current])
+  saveTitle()
+  setMsg("")
+  setMsgList((current)=>[Msg,...current])
+
+}
+console.log(Title)
+ 
 //   const [todo,settodo]=useState('')
 //   const [todos,settodos]=useState([])
 //   const deleteBtn = index => {
@@ -47,16 +69,17 @@ return (<div>
     <div id='MainWrap'>
     <header>
     <Link to='/'> <span>My note</span> </Link>
-    <button id='createButton' onClick={resetcontent}>cre</button>
+    <button id='createButton' onClick={onClick} >cre</button>
     </header>
 <div id='CreateTitlewrap'>
-  <textarea placeholder='Write Your Title' onChange={handleChangeTitle} value={Title} >{localStorage.getItem('title')}</textarea>
+  <textarea placeholder='Write Your Title' onChange={onChangeTitle} value={Title} ></textarea>
 </div>
 <div id='CreateContentWrap' >
-<textarea placeholder='Write Your Content'onChange={handleChangeMsg} value={Msg}>{localStorage.getItem('msg')}</textarea>
+<textarea placeholder='Write Your Content'onChange={handleChangeMsg} value={Msg}></textarea>
 </div>
   </div>
   </div>
+  <Main TitleList={TitleList}></Main>
   {/* <h1>My To Do list!</h1>
 
 <form onSubmit={onSubmit}>
