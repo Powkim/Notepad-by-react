@@ -5,11 +5,11 @@ import './Create.css';
 import {  Link } from "react-router-dom"; 
 import Main from './m'
 
-function Create() {
+function Create({hi}) {
   const [Title,setTitle]=useState('')
   const [Msg,setMsg]=useState('')
-  const [TitleList,setTitleList]=useState('')
-  const [MsgList,setMsgList]=useState('')
+  const [TitleList,setTitleList]=useState([])
+  const [MsgList,setMsgList]=useState([])
   const Title_key="title"
   const Msg_key="msg"
  
@@ -34,7 +34,7 @@ setTitle(event.target.value)
     }
 
   const saveMsg=()=> {
-    localStorage.setItem(Msg_key, JSON.stringify(Msg));
+    localStorage.setItem(Msg_key, JSON.stringify(MsgList));
   }
 const onClick=()=>{
 setTitle("")
@@ -44,7 +44,7 @@ setTitle("")
   setMsgList((current)=>[Msg,...current])
 
 }
-console.log(Title)
+
  
 //   const [todo,settodo]=useState('')
 //   const [todos,settodos]=useState([])
