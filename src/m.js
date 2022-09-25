@@ -2,9 +2,9 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { memo, useEffect } from 'react';
 import React from 'react'
 const Main = ({TitleList}) =>{
- let memolist = localStorage.getItem('title')
-memolist=JSON.parse(memolist)
-console.log(typeof(memolist))
+ let getItem = localStorage.getItem('msg')
+
+
  return (
 
     <div>
@@ -16,22 +16,23 @@ console.log(typeof(memolist))
       <div id="searchWrap">Search..</div>
       <div id='notelistWrap'>
     <ul >
+    
     {/* {TitleList.map((item,index)=>{
 <li key={index} id="Notelists">{item}</li>
 
     })} */}
-    {/* <li id="Notelists">
-      <span className='NoteTitle'>{`${localStorage.getItem('msg').slice(1,-1)}...`}</span><br></br>
+    <li id="Notelists">
+      <span className='NoteTitle'>ss</span><br></br>
     <span className='NoteDate'>{new Date().toLocaleDateString()
 
 
 }</span>
     <button>del</button>
     <button><a href=''></a>edit</button>
-    </li> */}
-    {memolist.map((e,i)=>{
+    </li>
+    {JSON.parse(getItem).map((e,i)=>{
 return (
-  <li id="Notelists">
+  <li id="Notelists" key={i}>
     <span id='notetitle'>{e}</span><br></br>
     <span className='NoteDate'>{new Date().toLocaleDateString()
 
@@ -43,7 +44,7 @@ return (
 )
     })}
     
-    
+   
     </ul>
     
       </div>
