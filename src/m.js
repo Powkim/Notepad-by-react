@@ -1,8 +1,21 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom"; 
-import { memo, useEffect } from 'react';
+import { memo, useEffect,useParams } from 'react';
 import React from 'react'
-const Main = ({TitleList}) =>{
- let getItem = localStorage.getItem('msg')
+import { render } from '@testing-library/react';
+
+const Main = ({Msglist,TitleList}) =>{
+const memolist = []
+for(let i=0 ; i<localStorage.length;i++){
+memolist.push(JSON.parse(localStorage.getItem(localStorage.key(i))))
+}
+console.log(memolist)
+
+
+
+const onRemove = (item) => {
+localStorage.removeItem(item.time)
+render()
+}
 
 
  return (
@@ -22,24 +35,23 @@ const Main = ({TitleList}) =>{
 
     })} */}
     <li id="Notelists">
+     
       <span className='NoteTitle'>ss</span><br></br>
     <span className='NoteDate'>{new Date().toLocaleDateString()
 
 
 }</span>
-    <button>del</button>
+    <button >del</button>
     <button><a href=''></a>edit</button>
     </li>
-    {JSON.parse(getItem).map((e,i)=>{
+    {memolist.map((item,i)=>{
 return (
   <li id="Notelists" key={i}>
-    <span id='notetitle'>{e}</span><br></br>
-    <span className='NoteDate'>{new Date().toLocaleDateString()
-
-
-}</span>
-    <button>del</button>
-    <button><a href=''></a>edit</button>
+    <form>
+    <span className='NoteTitle'>{item.msg}</span><br></br>
+    <span className='NoteDate'>{item.time}</span>
+    <button id='delbutton' onClick={()=>{onRemove(item)}}> del</button>
+    <Link to='View'> <button><a href=''></a>edit</button></Link></form>
   </li>
 )
     })}

@@ -4,7 +4,7 @@ import React from 'react'
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom"; 
 import Main from './m'
 import Create from './Create'
-
+import View from './View'
 function App() {
   
 return (
@@ -13,6 +13,7 @@ return (
 <Routes>
 <Route path='/' element={<Main/>}></Route>
 <Route path='/create' element={<Create/>}></Route>
+<Route path='/view' element={<View/>}></Route>
 </Routes>
 </BrowserRouter>
 </div>
