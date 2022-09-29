@@ -13,7 +13,7 @@ return (
 <Routes>
 <Route path='/' element={<Main/>}></Route>
 <Route path='/create' element={<Create/>}></Route>
-<Route path='/view' element={<View/>}></Route>
+<Route path='/view/:id' element={<View/>}></Route>
 </Routes>
 </BrowserRouter>
 </div>

@@ -30,6 +30,7 @@
     border-radius: 10px;
     background-color: #fff;
     padding: 5px;
+
     
 }
 #CreateTitlewrap>textarea{
@@ -55,5 +56,14 @@ header{width: 100%;
     display:flex;
     justify-content: center;
     align-items: center;
-   
+   color:#fba523;
+
 }
+button {
+    width: 25px;height: 25px;
+
+
+}
+#createButton{
+    float: right;
+  }

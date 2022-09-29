@@ -1,103 +1,46 @@
 import React from 'react';
-import { useState, useEffect } from "react";
+import {useState} from 'react' 
 import './Create.css';
-import {  Link } from "react-router-dom"; 
+import {  Link,useNavigate} from "react-router-dom"; 
 import Main from './m'
-;
+;import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashCan, faFilePen,faPencil,faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 
 function Create() {
   const [Title,setTitle]=useState('')
   const [Msg,setMsg]=useState('')
-  const listtitle = JSON.parse(localStorage.getItem('title'))
-  const listmsg = JSON.parse(localStorage.getItem('msg'))
-  const [TitleList,setTitleList]=useState(listtitle)
-  const [MsgList,setMsgList]=useState((listmsg))
-
-
-
-  // useEffect(()=>{
-  //   localStorage.setItem(Title_key,JSON.stringify(Title))
-  // })
-  
-  // useEffect(() => {
-  //   localStorage.setItem(Title_key, JSON.stringify(TitleList));
-  // });
-  // useEffect(() => {
-  //   localStorage.setItem(key,JSON.stringify({
-  //     titme:key,
-  //     title:Title,
-  //     msg:Msg,
-  //     onder:Date.parse(now)
-  //   }))
-  // });
-
-
-  const onRemove = (i) => {
-      const filteritem=MsgList.filter((item, listIndex) => listIndex!==i);
-    // localStorage.setItem('msg',JSON.stringify(filteritem))
-    // localStorage.setItem('title',JSON.stringify(filteritem))
-    
-    };
-
-
-
-
+  const navigate=useNavigate()
   const onChangeTitle =(event)=>{
 setTitle(event.target.value)
   }
-    const handleChangeMsg=(event)=>{
+ const handleChangeMsg=(event)=>{
     setMsg(event.target.value)
    }
+
   let now= new Date()
   let key =now.toLocaleString()
-  const saveTitle=()=>{
- 
-   localStorage.setItem(key,JSON.stringify({
+  const save=()=>{
+    localStorage.setItem(key,JSON.stringify({
     time:key,
     title:Title,
     msg:Msg,
     onder:Date.parse(now)
+    
   }))
+  navigate(`/view/${key}`);
     }
 
 
 const onClick=()=>{
-setTitle("")
 
-saveTitle()
-    setMsg("")
- 
+save()
+
 }
 
 
 
-//   const saveMsgs = localStorage.getItem(Msg_key)
-//   const msgs=JSON.parse(saveMsgs)
-//  console.log(localStorage.getItem)
 
-
-
-
- 
-//   const [todo,settodo]=useState('')
-//   const [todos,settodos]=useState([])
-//   const deleteBtn = index => {
-
-//     settodos(todos.filter((item, todoIndex) => index !== todoIndex));
-
-//     };
-
-// const change=(event)=>settodo(event.target.value)
-// const onSubmit = (event) => {
-//   event.preventDefault();
-//   if (todo === "") {
-//     return;
-//   } else {
-//     settodos((currentArray) => [...currentArray, todo]);
-//     settodo("");
-//   }
-// }
 return (<div>
   <div id='CreateWrap'>
     <div id='MainWrap'>
@@ -105,7 +48,7 @@ return (<div>
    
     <Link to='/'> <h3>My note</h3> </Link> <br></br>
 
-    <button  id='createbutton'onClick={onClick} >cre</button>
+    <button ><FontAwesomeIcon  id='createbutton'onClick={onClick}  id='createButton' icon={faFilePen} color='#AB4E4E' size='lg' /></button>
     </header>
   
 <div id='CreateTitlewrap'>
@@ -118,27 +61,7 @@ return (<div>
   </div>
   </div>
 
-  {/* <h1>My To Do list!</h1>
-
-<form onSubmit={onSubmit}>
-
-<button >
-  click
-</button>
-</form>
-<form onSubmit={onSubmit}>
-
-
-<ul>
-{todos.map((item, index) => (
-<li key={index}>
-  {item}
-<button onClick={ ()=>deleteBtn(index)}>delete!</button>
-</li>
- ))}
-</ul>
-</form> */}
-</div>)
+ </div>)
 
 }
 
