@@ -39,6 +39,9 @@ const arr=memolist.filter(filtering)
 console.log(arr.map((el)=>
 el.msg
 ))
+const clear=()=>{
+  setSearch('')
+}
  return (
 
     <div>
@@ -50,8 +53,12 @@ el.msg
         <Link to='Create'>
           <FontAwesomeIcon id='createButton' icon={faFilePen} color='#AB4E4E' size='lg' />
 
-</Link> </header>
-      <div id="searchWrap"><FontAwesomeIcon icon={faMagnifyingGlass}></FontAwesomeIcon><input onChange={onChange} id="searchinput" placeholder='Search..'></input></div>
+</Link>
+
+ </header>
+      <div id="searchWrap"><FontAwesomeIcon icon={faMagnifyingGlass}></FontAwesomeIcon><input value={Search} onChange={onChange} id="searchinput" placeholder='Search..'></input>
+      <button id="Xbutton" onClick={clear} >X</button>
+      </div>
       <div id='notelistWrap'>
     <ul >
     
