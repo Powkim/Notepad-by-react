@@ -19,7 +19,9 @@
   height:560px;
   background-color: #FFF4CF;
   margin: auto; 
-  display: flex;  flex-direction: column;
+  display: flex; 
+   flex-direction: column;
+   align-items: center;
   border-radius: 20px;
 }
 #CreateTitlewrap{
@@ -30,7 +32,7 @@
     border-radius: 10px;
     background-color: #fff;
     padding: 5px;
-
+  border-radius: 20px;
     
 }
 #CreateTitlewrap>textarea{
