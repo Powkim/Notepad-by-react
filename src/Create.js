@@ -48,7 +48,7 @@ return (<div>
    
     <Link to='/'> <h3>My note</h3> </Link> <br></br>
 
-    <button ><FontAwesomeIcon  id='createbutton'onClick={onClick}  id='createButton' icon={faFilePen} color='#AB4E4E' size='lg' /></button>
+    <button ><FontAwesomeIcon  id='createbutton'onClick={onClick}   icon={faFilePen} color='#AB4E4E' size='lg' /></button>
     </header>
   
 <div id='CreateTitlewrap'>

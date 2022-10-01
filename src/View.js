@@ -90,7 +90,7 @@ return (<div>
  
     <Link to='/'> <h3>My note</h3> </Link> <br></br>
 
-    <button  id='createbutton' onClick={onClick}><FontAwesomeIcon  id='createbutton'onClick={onClick}  id='createButton' icon={faFilePen} color='#AB4E4E' size='lg' /></button>
+    <button  id='createbutton' onClick={onClick}><FontAwesomeIcon  icon={faFilePen} color='#AB4E4E' size='lg' /></button>
     </header>
   
 <div id='CreateTitlewrap'>
