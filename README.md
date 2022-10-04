@@ -13,13 +13,13 @@
 <h3>Search</h3>
 찾고자 하는 메모장의 내용을 input창에 입력하게 되면 그에 맞는 메모리스트들을 출력하는 기능을 구현하였다.
 
-<h3>Memo Read 및 Update</h3>
+<h3>Note Read 및 Update</h3>
 
 작성한 메모들의 내용과 작성 당시 시간을 보여주고, 작성한 메모 수정시 새로운 데이터로 업데이트 되도록 구현하였다.
 
-<h3>작성 / 수정 / 삭제</h3>
+<h3>Memo 작성 / 수정 / 삭제</h3>
  
-Memo작성시 useNavigate를 활용하여 해당 메모의 key값을 전달해 페이지의 주소를 생성하도록 했고, View페이지에서 useParams와 useNavigate를 활용해 조회 및 수정이 가능하도록 구현하였으며, 메모 수정시 작성시간을 새로 업데이트하여 기존에 작성되어 있던 Note를 삭제하고 새로운 값을 생성하는 방식으로 기능을 구
+Note 작성시 localstorage의 해당 메모에 해당하는 key값을 value값과 useNavigate를 활용하여 만든 변수 navigate 전달해 해당 메모페이지 주소에 key값을 추가하여 주소를 생성하도록 했고, 이 주소를 useParams와 useNavigate를 활용해 조회 및 수정이 가능하도록 구현하였다. 메모 수정시 작성시간을 새로 업데이트하여 페이지의 key값을 변경하고, 기존에 작성되어 있던 Note를 삭제하고 새로운 값을 생성하는 방식으로 기능을 구현하였고, 삭제 기능은 localStorage.removeItem 메서드와 Note값 Read시 사용되었던 map함수의 매개변수 item을 props로 전달받아 삭제하도록 구현하였다.
 
 
 
