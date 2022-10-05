@@ -9,12 +9,15 @@ const Main = ({Msglist,TitleList}) =>{
  
   const [Search,setSearch]=useState('') // onchange 시  !로 변경 
   const [Check,setCheck]=useState(false)//onchange시 값 저장용
+
+  const keys=[]
 const memolist = []
 
 for(let i=0 ; i<localStorage.length;i++){
 memolist.push(JSON.parse(localStorage.getItem(localStorage.key(i))))
 }
-
+memolist.sort((a,b)=> {return b.onder - a.onder})
+console.log(memolist)
 
 
 const onChange = (event) => {
@@ -36,9 +39,7 @@ return true
 return false
 }
 const arr=memolist.filter(filtering)
-console.log(arr.map((el)=>
-el.msg
-))
+
 const clear=()=>{
   setSearch('')
 }
