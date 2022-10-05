@@ -49,14 +49,18 @@ const clear=()=>{
     <div id='mainWrap'>
       <div id='main'>
     
-        <header><span>My note</span>
+  <header> 
+       <Link to='/'>
+          <span id='maintitle'>My note</span>
+           </Link>
         <Link to='Create'>
           <FontAwesomeIcon id='createButton' icon={faFilePen} color='#AB4E4E' size='lg' />
 
 </Link>
 
  </header>
-      <div id="searchWrap"><FontAwesomeIcon icon={faMagnifyingGlass}></FontAwesomeIcon><input value={Search} onChange={onChange} id="searchinput" placeholder='Search..'></input>
+      <div id="searchWrap"><FontAwesomeIcon icon={faMagnifyingGlass}></FontAwesomeIcon>
+      <input value={Search} onChange={onChange} id="searchinput" placeholder='Search..'></input>
       <button id="Xbutton" onClick={clear} >X</button>
       </div>
       <div id='notelistWrap'>
@@ -82,7 +86,8 @@ const clear=()=>{
       return (
       <li id="Notelists" >
       <form>
-      <span className='NoteTitle'>{item.msg}</span><br></br>
+      <Link to={`view/${item.time}`}>
+      <span className='NoteTitle'>{item.msg}</span><br></br></Link>
       <span className='NoteDate'>{item.time}</span>
         <button onClick={()=>{onRemove(item)}} id='delbutton'  ><FontAwesomeIcon icon={faTrashCan} color="#FFF6C7" size='lg' /></button>
         <Link to={`view/${item.time}`}>
@@ -98,7 +103,8 @@ const clear=()=>{
 return (
   <li id="Notelists" key={i}>
     <form>
-    <span className='NoteTitle'>{item.msg}</span><br></br>
+    <Link to={`view/${item.time}`}>
+    <span className='NoteTitle'>{item.msg}</span><br></br></Link>
     <span className='NoteDate'>{item.time}</span>
       <button onClick={()=>{onRemove(item)}} id='delbutton'  ><FontAwesomeIcon icon={faTrashCan} color="#FFF6C7" size='lg' /></button>
     <Link to={`view/${item.time}`}>

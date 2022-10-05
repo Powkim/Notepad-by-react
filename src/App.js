@@ -9,8 +9,8 @@ function App() {
   
 return (
 <div>
-<BrowserRouter>
-<Routes>
+<BrowserRouter basename={process.env.PUBLIC_URL}>
+<Routes >
 <Route path='/' element={<Main/>}></Route>
 <Route path='/create' element={<Create/>}></Route>
 <Route path='/view/:id' element={<View/>}></Route>

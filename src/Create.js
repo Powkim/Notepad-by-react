@@ -46,9 +46,10 @@ return (<div>
     <div id='MainWrap'>
     <header>
    
-    <Link to='/'> <h3>My note</h3> </Link> <br></br>
+    <Link to='/'> <h3 id='title'>My note</h3> </Link> <br></br>
 
-    <button ><FontAwesomeIcon  id='createbutton'onClick={onClick}   icon={faFilePen} color='#AB4E4E' size='lg' /></button>
+  <FontAwesomeIcon  id='createbutton'onClick={onClick}   icon={faFilePen} color='#AB4E4E' size='lg' > 
+</FontAwesomeIcon>
     </header>
   
 <div id='CreateTitlewrap'>
