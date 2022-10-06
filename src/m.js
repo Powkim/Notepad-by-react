@@ -5,11 +5,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan, faFilePen,faPencil,faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import View from "./View"
 
+
 const Main = ({Msglist,TitleList}) =>{
  
   const [Search,setSearch]=useState('') // onchange 시  !로 변경 
   const [Check,setCheck]=useState(false)//onchange시 값 저장용
-
+  const [isOpen, setIsOpen] = useState(false);
   const keys=[]
 const memolist = []
 
@@ -17,7 +18,7 @@ for(let i=0 ; i<localStorage.length;i++){
 memolist.push(JSON.parse(localStorage.getItem(localStorage.key(i))))
 }
 memolist.sort((a,b)=> {return b.onder - a.onder})
-console.log(memolist)
+
 
 
 const onChange = (event) => {
@@ -27,6 +28,7 @@ setCheck(!Check)
 }
 const onRemove = (item) => {
 localStorage.removeItem(item.time)
+
 
 }
 const  onEdit = (item,i) => {
@@ -43,6 +45,12 @@ const arr=memolist.filter(filtering)
 const clear=()=>{
   setSearch('')
 }
+const ModalHandler = (e) =>{
+e.preventDefault()  
+  setIsOpen(!isOpen)
+
+}
+//Isopen true? 모달창 띄우기 div
  return (
 
     <div>
@@ -66,7 +74,19 @@ const clear=()=>{
       </div>
       <div id='notelistWrap'>
     <ul >
+    {isOpen?<div id='Modal'>
+      <span> 삭제하시겠습니까? </span>
+      <br></br>
+      <button >Yes</button>
+       <button onClick={ModalHandler}>No</button>
+     
+ 
     
+    </div>
+    
+    
+    
+    :null}
     {/* {TitleList.map((item,index)=>{
 <li key={index} id="Notelists">{item}</li>
 
@@ -90,9 +110,10 @@ const clear=()=>{
       <Link to={`view/${item.time}`}>
       <span className='NoteTitle'>{item.msg}</span><br></br></Link>
       <span className='NoteDate'>{item.time}</span>
-        <button onClick={()=>{onRemove(item)}} id='delbutton'  ><FontAwesomeIcon icon={faTrashCan} color="#FFF6C7" size='lg' /></button>
+        {/* <button onClick={()=>{onRemove(item)}} id='delbutton'  ><FontAwesomeIcon icon={faTrashCan} color="#FFF6C7" size='lg' /></button>
+        <Link to={`view/${item.time}`}> */}
+       <button onClick={()=>{ModalHandler(item)}} id='delbutton'  ><FontAwesomeIcon icon={faTrashCan} color="#FFF6C7" size='lg' /></button>
         <Link to={`view/${item.time}`}>
-  
   <button item={item} onClick={()=>{onEdit(item)}}>  <FontAwesomeIcon id='editbutton'  icon={faPencil} color="#FFF6C7"/> </button></Link></form>
 
   
@@ -107,7 +128,7 @@ return (
     <Link to={`view/${item.time}`}>
     <span className='NoteTitle'>{item.msg}</span><br></br></Link>
     <span className='NoteDate'>{item.time}</span>
-      <button onClick={()=>{onRemove(item)}} id='delbutton'  ><FontAwesomeIcon icon={faTrashCan} color="#FFF6C7" size='lg' /></button>
+    <button onClick={ModalHandler} id='delbutton'  ><FontAwesomeIcon icon={faTrashCan} color="#FFF6C7" size='lg' /></button>
     <Link to={`view/${item.time}`}>
   
         <button item={item} i={i} onClick={()=>{onEdit(item)}}>  <FontAwesomeIcon id='editbutton'  icon={faPencil} color="#FFF6C7"/> </button></Link></form>
