@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Notepad-by-react/static/css/main.28e400b3.css",
-    "main.js": "/Notepad-by-react/static/js/main.7445c235.js",
+    "main.css": "/Notepad-by-react/static/css/main.4a6ac042.css",
+    "main.js": "/Notepad-by-react/static/js/main.66b35a60.js",
     "static/js/787.63e47474.chunk.js": "/Notepad-by-react/static/js/787.63e47474.chunk.js",
     "index.html": "/Notepad-by-react/index.html",
-    "main.28e400b3.css.map": "/Notepad-by-react/static/css/main.28e400b3.css.map",
-    "main.7445c235.js.map": "/Notepad-by-react/static/js/main.7445c235.js.map",
+    "main.4a6ac042.css.map": "/Notepad-by-react/static/css/main.4a6ac042.css.map",
+    "main.66b35a60.js.map": "/Notepad-by-react/static/js/main.66b35a60.js.map",
     "787.63e47474.chunk.js.map": "/Notepad-by-react/static/js/787.63e47474.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.28e400b3.css",
-    "static/js/main.7445c235.js"
+    "static/css/main.4a6ac042.css",
+    "static/js/main.66b35a60.js"
   ]
 }
