@@ -11,6 +11,7 @@ const Main = ({Msglist,TitleList}) =>{
   const [Search,setSearch]=useState('') // onchange 시  !로 변경 
   const [Check,setCheck]=useState(false)//onchange시 값 저장용
   const [isOpen, setIsOpen] = useState(false);
+  const [Deleteindex,SetDeleteindex]=useState("")
   const keys=[]
 const memolist = []
 
@@ -26,9 +27,9 @@ setSearch(event.target.value)
 setCheck(!Check)
 
 }
-const onRemove = (item) => {
-localStorage.removeItem(item.time)
-
+const onRemove = () => {
+ localStorage.removeItem(Deleteindex)
+ setIsOpen(!isOpen)
 
 }
 const  onEdit = (item,i) => {
@@ -45,11 +46,13 @@ const arr=memolist.filter(filtering)
 const clear=()=>{
   setSearch('')
 }
-const ModalHandler = (e) =>{
-e.preventDefault()  
+const ModalHandler = (item) =>{
+
   setIsOpen(!isOpen)
+  SetDeleteindex(item.time)
 
 }
+console.log(Deleteindex)
 //Isopen true? 모달창 띄우기 div
  return (
 
@@ -76,11 +79,11 @@ e.preventDefault()
     <ul >
     {isOpen?<div id='Modal'>
       <span> 삭제하시겠습니까? </span>
-      <br></br>
-      <button >Yes</button>
+    <div id='buttonWrap'>
+      <button onClick={onRemove} >Yes</button>
        <button onClick={ModalHandler}>No</button>
      
- 
+       </div>
     
     </div>
     
@@ -106,7 +109,7 @@ e.preventDefault()
     arr.map((item)=>{
       return (
       <li id="Notelists" >
-      <form>
+ 
       <Link to={`view/${item.time}`}>
       <span className='NoteTitle'>{item.msg}</span><br></br></Link>
       <span className='NoteDate'>{item.time}</span>
@@ -114,7 +117,7 @@ e.preventDefault()
         <Link to={`view/${item.time}`}> */}
        <button onClick={()=>{ModalHandler(item)}} id='delbutton'  ><FontAwesomeIcon icon={faTrashCan} color="#FFF6C7" size='lg' /></button>
         <Link to={`view/${item.time}`}>
-  <button item={item} onClick={()=>{onEdit(item)}}>  <FontAwesomeIcon id='editbutton'  icon={faPencil} color="#FFF6C7"/> </button></Link></form>
+  <button item={item} onClick={()=>{onEdit(item)}}>  <FontAwesomeIcon id='editbutton'  icon={faPencil} color="#FFF6C7"/> </button></Link>
 
   
      </li>
@@ -124,14 +127,14 @@ e.preventDefault()
     :memolist.map((item,i)=>{
 return (
   <li id="Notelists" key={i}>
-    <form>
+
     <Link to={`view/${item.time}`}>
     <span className='NoteTitle'>{item.msg}</span><br></br></Link>
     <span className='NoteDate'>{item.time}</span>
-    <button onClick={ModalHandler} id='delbutton'  ><FontAwesomeIcon icon={faTrashCan} color="#FFF6C7" size='lg' /></button>
+    <button onClick={()=>{ModalHandler(item)}} id='delbutton'  ><FontAwesomeIcon icon={faTrashCan} color="#FFF6C7" size='lg' /></button>
     <Link to={`view/${item.time}`}>
   
-        <button item={item} i={i} onClick={()=>{onEdit(item)}}>  <FontAwesomeIcon id='editbutton'  icon={faPencil} color="#FFF6C7"/> </button></Link></form>
+        <button id='editbutton' item={item} i={i} onClick={()=>{onEdit(item)}}>  <FontAwesomeIcon   icon={faPencil} color="#FFF6C7"/> </button></Link>
   </li>
   
 )
